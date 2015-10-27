@@ -1,0 +1,54 @@
+# Parameters for the Stillinger-Weber like potential developed by Watanabe, et. al
+# multiple entries can be added to this file, LAMMPS reads the ones it needs
+# these entries are in LAMMPS "metal" units:
+# epsilon = eV; sigma = Angstroms
+# other quantities are unitless
+
+# format of a single element triplet entry (one or more lines):
+#   element 1, element 2, element 3, epsilon, sigma, a_ij, a_ik, lambda, gamm_ij, gamm_ik, costheta0, Aij, Bij, pij, qij, cij, tol
+#
+# epsilon and sigma are scaling quantaties, a_ij through costheta0 are for 3-body interactions 
+# and Aij through cij are for 2 body interactions.
+# NOTE! a_ij, a_ik, and cij are the cutoff distances used by the potential.  These replace the
+# single cutoff distance, a, used in the Stillinger-Weber potential.  
+# Watanabe and Ganster both label cij differently, but "cij" was chosen here to minimize confusion 
+
+# format of the bond-softening function (must start line with "Soft":
+#   Soft, element 1, element 2, m1, m2, m3, m4, m5, R, D
+#
+# The bond-softening function is only calculated for element 1 being bonded to element 2.
+# All other pairings have the function = 1
+
+# Si = parameters from Watanabe, et. al, Jap. J. Appl. Phys., v. 38 p. L366 (1999) 
+#
+# Si(a) = parameters from Ganster, et. al, Phys. Rev. B, v. 81 p. 045315 (2010) that exactly 
+# reproduces Si Si Si of Stillinger and Weber,  Phys. Rev. B, v. 31, p. 5262, (1985)
+#
+
+#E1    E2    E3    epsil  sigma  a_ij a_ik lambda gamm_ij gamm_ik costheta0       Aij           Bij          pij     qij     cij  tol
+ Si    Si    Si    2.1696 2.0951 1.80 1.80 16.404 1.0473  1.0473  -0.333333333333 7.049556277   0.6022245584 4.0     0.0     1.80 0.0
+ Si    Si    O     2.1696 2.0951 1.90 1.40 10.667 1.93973 0.25    -0.333333333333 7.049556277   0.6022245584 4.0     0.0     1.80 0.0
+ Si    O     Si    2.1696 2.0951 1.40 1.90 10.667 0.25    1.93973 -0.333333333333 115.364065913 0.9094442793 2.58759 2.39370 1.40 0.0 
+ Si    O     O     2.1696 2.0951 1.65 1.65 3.1892 0.3220  0.3220  -0.333333333333 115.364065913 0.9094442793 2.58759 2.39370 1.40 0.0 
+ O     Si    Si    2.1696 2.0951 1.40 1.40 2.9572 0.71773 0.71773 -0.6155238      115.364065913 0.9094442793 2.58759 2.39370 1.40 0.0
+ O     Si    O     2.1696 2.0951 0.0  0.0  0.0    0.0     0.0     0.0             115.364065913 0.9094442793 2.58759 2.39370 1.40 0.0
+ O     O     Si    2.1696 2.0951 0.0  0.0  0.0    0.0     0.0     0.0             -12.292427744 0.0          0.0     2.24432 1.25 0.0
+ O     O     O     2.1696 2.0951 0.0  0.0  0.0    0.0     0.0     0.0             -12.292427744 0.0          0.0     2.24432 1.25 0.0
+
+#Parameters for the bond-softening function
+#Soft E1    E2    m1     m2     m3     m4     m5     R   D
+ Soft O     Si    0.0970 1.6000 0.3654 0.1344 6.4176 1.3 0.1
+
+#E1    E2    E3    epsil  sigma  a_ij a_ik lambda gamm_ij gamm_ik costheta0       Aij           Bij          pij     qij     cij  tol
+ Si(a) Si(a) Si(a) 2.1696 2.0951 1.80 1.80 21.0   1.20    1.20    -0.333333333333 7.049556277   0.6022245584 4.0     0.0     1.80 0.0
+ Si(a) Si(a) O     2.1696 2.0951 1.90 1.40 10.667 1.93973 0.25    -0.333333333333 7.049556277   0.6022245584 4.0     0.0     1.80 0.0
+ Si(a) O     Si(a) 2.1696 2.0951 1.90 1.40 10.667 1.93973 0.25    -0.333333333333 115.364065913 0.9094442793 2.58759 2.39370 1.40 0.0 
+ Si(a) O     O     2.1696 2.0951 1.65 1.65 3.1892 0.3220  0.3220  -0.333333333333 115.364065913 0.9094442793 2.58759 2.39370 1.40 0.0 
+ O     Si(a) Si(a) 2.1696 2.0951 1.40 1.40 2.9572 0.71773 0.71773 -0.6155238      115.364065913 0.9094442793 2.58759 2.39370 1.40 0.0
+ O     Si(a) O     2.1696 2.0951 0.0  0.0  0.0    0.0     0.0     0.0             115.364065913 0.9094442793 2.58759 2.39370 1.40 0.0
+ O     O     Si(a) 2.1696 2.0951 0.0  0.0  0.0    0.0     0.0     0.0             -12.292427744 0.0          0.0     2.24432 1.25 0.0
+#O     O     O     2.1696 2.0951 0.0  0.0  0.0    0.0     0.0     0.0             -12.292427744 0.0          0.0     2.24432 1.25 0.0
+
+#Parameters for the bond-softening function
+#Soft E1    E2    m1     m2     m3     m4     m5     R   D
+ Soft O     Si(a) 0.0970 1.6000 0.3654 0.1344 6.4176 1.3 0.1
