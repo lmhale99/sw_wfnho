@@ -18,7 +18,6 @@
    Contributing author: Lucas Hale
    Modified from the Stillinger-Weber potential by: Aidan Thompson (SNL)
    Updated to work with lammps version 20150810 by: Alessandro L. Sellerio
-   
 ------------------------------------------------------------------------- */
 
 #ifdef PAIR_CLASS
