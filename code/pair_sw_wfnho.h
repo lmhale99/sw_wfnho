@@ -11,19 +11,19 @@
 ------------------------------------------------------------------------- */
 
 /* ----------------------------------------------------------------------
+   Header for modified Stillinger-Weber potential from: 
+     T. Watanabe, H. Fujiwara, H. Noguchi, T. Hoshino, and I. Ohdomari,
+     Jap. J. Appl. Phys. vol 38 (1999) pp. L366-L369.
+   
    Contributing author: Lucas Hale
    Modified from the Stillinger-Weber potential by: Aidan Thompson (SNL)
+   Updated to work with lammps version 20150810 by: Alessandro L. Sellerio
    
-   Note 2015/09/16
-   This pair style and coefficient data set (total 3 files) was extracted from LM Hale phd thesis;
-   this text-compilable version was updated on 2015/09/16 for lammps version 20150810 by Alessandro L. Sellerio;
-   the files may contain errors and typos introduced by me due to pdf to text conversion procedure.
-   All credits go to original authors.
 ------------------------------------------------------------------------- */
 
 #ifdef PAIR_CLASS
 
-PairStyle(sw/wfnho,PairSWWFNHO)
+PairStyle(sw/wfnho, PairSWWFNHO)
 
 #else
 
@@ -46,20 +46,20 @@ class PairSWWFNHO : public Pair {
   virtual void init_style();
 
   struct Param {
-    double epsilon,sigma;
-    double aij,aik,cij,lambda,gammaij,gammaik,costheta;
-    double biga,bigb;
-    double powerp,powerq;
+    double epsilon, sigma;
+    double aij, aik, cij, lambda, gammaij, gammaik, costheta;
+    double biga, bigb;
+    double powerp, powerq;
     double tol;
-    double cutpair,cutij,cutik,cutpairsq,cutijsq,cutiksq;
-    double sigma_gammaij,sigma_gammaik,lambda_epsilon,lambda_epsilon2;
-    double c1,c2,c3,c4,c5,c6;
-    int ielement,jelement,kelement;
+    double cutpair, cutij, cutik, cutpairsq, cutijsq, cutiksq;
+    double sigma_gammaij, sigma_gammaik, lambda_epsilon, lambda_epsilon2;
+    double c1, c2, c3, c4, c5, c6;
+    int ielement, jelement, kelement;
   };
 
   struct Softparam {
-    double ma,mb,mc,md,me,bigr,bigd;
-    int ielement,jelement;
+    double ma, mb, mc, md, me, bigr, bigd;
+    int ielement, jelement;
   };
 
  protected:
